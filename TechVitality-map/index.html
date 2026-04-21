@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Vitality Index — U.S. County Explorer</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="header-left">
+      <div class="eyebrow">U.S. County-Level Economic &amp; Technology Explorer · ACS 2022 · BLS 2022</div>
+      <h1>Tech Vitality Index</h1>
+      <p class="tagline">Where does economic opportunity and digital access cluster across America?</p>
+    </div>
+    <div class="header-right">
+      <strong>How to use this map</strong><br>
+      Select an attribute below to recolor the map and update the ranking chart.
+      Hover any county to retrieve details — click to pin. Scroll to zoom, drag to pan.
+      Darker fill = higher value; light gray = no data.
+    </div>
+  </header>
+
+  <div class="controls">
+    <span class="ctrl-label">View by</span>
+    <button class="attr-btn active" data-attr="income">Median Income</button>
+    <button class="attr-btn" data-attr="bachelors">Bachelor's Degree %</button>
+    <button class="attr-btn" data-attr="tech_share">Tech Employment %</button>
+    <button class="attr-btn" data-attr="broadband">Broadband Access %</button>
+    <button class="attr-btn" data-attr="unemployment">Unemployment %</button>
+    <div class="divider"></div>
+    <button class="attr-btn" id="sort-btn">↓ Highest First</button>
+  </div>
+
+  <main>
+    <div id="map-panel">
+      <div id="map-loading">Loading map data…</div>
+      <div id="zoom-hint">Scroll to zoom · Drag to pan · Click a county to pin it</div>
+      <svg id="map-svg"></svg>
+      <button id="zoom-reset">⟳ Reset View</button>
+      <div id="legend">
+        <div id="legend-title">Median Household Income</div>
+        <div id="legend-scale"></div>
+      </div>
+    </div>
+
+    <div id="stats-panel">
+      <div class="panel-label">Dataset Summary</div>
+      <div class="stat-grid">
+        <div class="stat-card"><div class="s-label">Counties</div><div class="s-val" id="s-count">—</div></div>
+        <div class="stat-card"><div class="s-label">National Avg</div><div class="s-val" id="s-avg">—</div></div>
+        <div class="stat-card"><div class="s-label">Highest</div><div class="s-val" id="s-max">—</div></div>
+        <div class="stat-card"><div class="s-label">Lowest</div><div class="s-val" id="s-min">—</div></div>
+      </div>
+      <div class="panel-label" style="margin-top:0.9rem">Selected County</div>
+      <div id="info-box">
+        <span class="placeholder-text">Hover or click a county to retrieve details.</span>
+      </div>
+    </div>
+
+    <div id="chart-panel">
+      <div id="chart-title">Top 20 Counties — Median Income</div>
+      <div id="bar-chart"></div>
+    </div>
+  </main>
+
+  <footer>
+    <span><strong>Author:</strong> Akhila Vattaluri Gangireddigari</span>
+    <span>Data: U.S. Census Bureau ACS 5-Year Estimates (2022) · BLS QCEW &amp; LAUS (2022) · FCC Broadband Data</span>
+    <span>Geography: <a href="https://cdn.jsdelivr.net/npm/us-atlas" target="_blank">us-atlas TopoJSON</a> · D3.js v7 · ENGAGE Innovation Award · UW–Madison</span>
+  </footer>
+
+  <div id="tooltip"><div class="tt-inner"></div></div>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
