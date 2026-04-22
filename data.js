@@ -1,20 +1,4 @@
-/* ================================================================
-   data.js  —  Tech Vitality Index
-   County dataset. FIPS codes are zero-padded 5-character strings
-   that match the id field in us-atlas TopoJSON exactly.
 
-   Source columns mirror county_tech_vitality_data.csv:
-     fips     — 5-digit FIPS (e.g. "06085")
-     name     — "Santa Clara County, California"
-     income   — median_household_income
-     bachelors — bachelors_pct
-     tech_share — tech_employment_pct
-     broadband  — broadband_access_pct
-     unemployment — unemployment_rate
-
-   Author: Akhila Vattaluri Gangireddigari
-   UW-Madison · Geography / Information Visualization
-================================================================ */
 
 const countyData = [
   // California
