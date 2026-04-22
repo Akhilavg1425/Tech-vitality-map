@@ -1,16 +1,3 @@
-/* ================================================================
-   main.js  —  Tech Vitality Index
-   Choropleth map (zoom + pan) + coordinated horizontal bar chart.
-   Data comes from data.js (countyData, attrs, dataByFips globals).
-
-   Author: Akhila Vattaluri Gangireddigari
-   UW-Madison · Geography / Information Visualization
-
-   Operators implemented:
-     Reexpress → attribute buttons update both views simultaneously
-     Retrieve  → hover/click shows tooltip, info panel, bar highlight
-     Zoom/Pan  → d3.zoom on the map SVG (scroll = zoom, drag = pan)
-================================================================ */
 
 // ── APPLICATION STATE ────────────────────────────────────────
 let currentAttr = "income";   // active attribute key (matches attrs{})
